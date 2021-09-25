@@ -1,0 +1,7 @@
+<h1> Welcome! </h1>
+<h2> <%= @user.email %> </h2>
+<%= link_to 'Sign Out', destroy_user_session_url %>
+<br>
+<br>
+<%= link_to 'Create connection', connection_create_index_url %>
+<%= render 'table' %>

@@ -1,0 +1,22 @@
+<table style="text-align: center;">
+  <tr>
+    <th>ID</th>
+    <th>Provider Name</th>
+    <th>Status</th>
+    <th>Country Code</th>
+  </tr>
+  <% @connections_list.each do |connection| %>
+    <tr>
+      <td> <%= link_to connection['id'], accounts_path(:connection_id => connection['id']) %> </td>
+      <td> <%= connection['provider_name'] %> </td>
+      <td> <%= connection['status']%> </td>
+      <td> <%= connection['country_code']%> </td>
+      <td>
+        <%= link_to 'Refresh /', connection_refresh_index_path(:connection_id => connection['id']) %>
+        <%= link_to 'Reconnect /', connection_reconnect_index_path(:customer_id   => @user.customer_id,
+                                                                   :connection_id => connection['id']) %>
+        <%= link_to 'Destroy', connection_destroy_index_path(:connection_id => connection['id']) %>
+      </td>
+    </tr>
+  <% end %>
+</table>
