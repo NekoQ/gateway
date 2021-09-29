@@ -15,7 +15,7 @@ This app uses:
 - navigate to `http://localhost:3000`
 
 ## Routes
-The requests body are the same as from the Specre API.
+The requests body are the same as from the Spectre API.
 In case of error, the response status and body are taken from the Spectre API's response.
 
 ```shell
