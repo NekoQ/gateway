@@ -2,9 +2,8 @@ class RegistrationsController < Devise::RegistrationsController
   def sign_up(resource_name, resource)
     super
 
-    puts api_customers_url
-    response = RestClient.post(api_customers_url, { 'data' => { 'identifier' => current_user.email } })
-    current_user.customer_id = JSON.parse(response.body)['data']['id']
+    response = Api.post_customer(current_user.email)[:response]
+    current_user.customer_id = JSON.parse(response)['data']['id']
     current_user.save
   end
 

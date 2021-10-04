@@ -2,9 +2,9 @@ module Connection
   class DestroyController < ApplicationController
     before_action :authenticate_user!
 
-    def index
+    def destroy
       api = Saltedge.new(APP_ID, SECRET)
-      connect_id = params[:connection_id]
+      connect_id = params[:id]
       url = "#{SALTEDGE_API}/connections/#{connect_id}"
 
       status, response = api.request(:delete, url)

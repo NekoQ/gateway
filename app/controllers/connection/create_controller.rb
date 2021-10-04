@@ -1,7 +1,8 @@
 module Connection
   class CreateController < ApplicationController
     before_action :authenticate_user!
-    def index
+
+    def create
       api = Saltedge.new(APP_ID, SECRET)
       url = "#{SALTEDGE_API}/connect_sessions/create"
       body = {

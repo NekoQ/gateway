@@ -2,11 +2,11 @@ module Connection
   class ReconnectController < ApplicationController
     before_action :authenticate_user!
 
-    def index
+    def update
       api = Saltedge.new(APP_ID, SECRET)
       url = "#{SALTEDGE_API}/connect_sessions/reconnect"
       customer_id = params[:customer_id]
-      connect_id = params[:connection_id]
+      connect_id = params[:id]
       body = {
         "data": {
           "customer_id": customer_id,

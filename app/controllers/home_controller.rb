@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   def index
     @user =	current_user
 
-    response = RestClient.get("#{api_connections_url}?customer_id=#{@user.customer_id}")
-    @connections_list = JSON.parse(response.body)['data']
+    response = Api.get_connections(@user.customer_id)[:response]
+    @connections_list = JSON.parse(response)['data']
   end
 end

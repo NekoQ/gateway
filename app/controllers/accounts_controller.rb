@@ -3,8 +3,8 @@ class AccountsController < ApplicationController
 
   def index
     @connection_id = params[:connection_id]
-    url = "#{api_accounts_url}?connection_id=#{@connection_id}"
-    response = RestClient.get(url)
-    @accounts_list = JSON.parse(response.body)['data']
+
+    response = Api.get_accounts(@connection_id)[:response]
+    @accounts_list = JSON.parse(response)['data']
   end
 end

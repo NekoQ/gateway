@@ -2,9 +2,9 @@ module Connection
   class RefreshController < ApplicationController
     before_action :authenticate_user!
 
-    def index
+    def update
       api = Saltedge.new(APP_ID, SECRET)
-      url = "#{SALTEDGE_API}/connections/#{params[:connection_id]}/refresh"
+      url = "#{SALTEDGE_API}/connections/#{params[:id]}/refresh"
       body = {
         "data": {
           "attempt": {
