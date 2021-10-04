@@ -1,19 +1,29 @@
-<table style="text-align: center;">
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Nature</th>
-    <th>Balance</th>
-    <th>Currency</th>
-  </tr>
-  <% @accounts_list.each do |account| %>
-    <tr>
-      <td><%= link_to account['id'], transactions_path(:connection_id => @connection_id, :account_id => account['id']) %></td>
-      <td> <%= account['name'] %> </td>
-      <td> <%= account['nature'] %> </td>
-      <td> <%= account['balance'] %> </td>
-      <td> <%= account['currency_code'] %> </td>
-    </tr>
-  <% end %>
-</table>
-<%= link_to 'home', root_path %>
+<div class='columns'>
+  <div class='column is-2' style='font-size:large; margin-top: 25px'>
+    <%= link_to 'Home', root_path, class: 'button' %>
+    <h1> Welcome! </h1>
+    <h2> <%= @user.email %> </h2>
+    <%= link_to 'Sign Out', destroy_user_session_url %>
+  </div>
+  <div class='column'>
+    <h1 class='title'> Accounts </h1>
+    <table class='table'>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Nature</th>
+        <th>Balance</th>
+        <th>Currency</th>
+      </tr>
+      <% @accounts_list.each do |account| %>
+        <tr>
+          <td><%= link_to account['id'], transactions_path(:connection_id => @connection_id, :account_id => account['id']) %></td>
+          <td> <%= account['name'] %> </td>
+          <td> <%= account['nature'] %> </td>
+          <td> <%= account['balance'] %> </td>
+          <td> <%= account['currency_code'] %> </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

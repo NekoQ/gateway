@@ -2,6 +2,7 @@ class TransactionsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @user = current_user
     connect_id = params[:connection_id]
     acc_id = params[:account_id]
 

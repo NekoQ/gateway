@@ -1,7 +1,10 @@
-<h1> Welcome! </h1>
-<h2> <%= @user.email %> </h2>
-<%= link_to 'Sign Out', destroy_user_session_url %>
-<br>
-<br>
-<%= link_to 'Create connection', connection_create_index_url, :method => :post %>
-<%= render 'table' %>
+<div class='columns'>
+  <div class='column is-2' style='font-size:large; margin-top: 25px'>
+    <h1> Welcome! </h1>
+    <h2> <%= @user.email %> </h2>
+    <%= link_to 'Sign Out', destroy_user_session_url %>
+  </div>
+  <div class='column'>
+    <%= render 'table' %>
+    <%= link_to 'Create connection', connection_create_index_url, :method => :post, class: 'button' %>
+  </div>

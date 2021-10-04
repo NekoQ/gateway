@@ -1,25 +1,35 @@
-<table style="text-align: center;">
-  <tr>
-    <th>ID</th>
-    <th>Mode</th>
-    <th>Status</th>
-    <th>Made On</th>
-    <th>Amount</th>
-    <th>Currency</th>
-    <th>Description</th>
-    <th>Category</th>
-  </tr>
-  <% @transactions_list.each do |transaction| %>
-    <tr>
-      <td> <%= transaction['id'] %> </td>
-      <td> <%= transaction['mode'] %> </td>
-      <td> <%= transaction['status'] %> </td>
-      <td> <%= transaction['made_on'] %> </td>
-      <td> <%= transaction['amount'] %> </td>
-      <td> <%= transaction['currency_code'] %> </td>
-      <td> <%= transaction['description'] %> </td>
-      <td> <%= transaction['category'] %> </td>
-    </tr>
-  <% end %>
-</table>
-<%= link_to 'home', root_path %>
+<div class='columns'>
+  <div class='column is-2' style='font-size:large; margin-top: 25px'>
+    <%= link_to 'Home', root_path, class: 'button' %>
+    <h1> Welcome! </h1>
+    <h2> <%= @user.email %> </h2>
+    <%= link_to 'Sign Out', destroy_user_session_url %>
+  </div>
+  <div class='column'>
+    <h1 class='title'>Transactions</h1>
+    <table class='table'>
+      <tr>
+        <th>ID</th>
+        <th>Mode</th>
+        <th>Status</th>
+        <th>Made On</th>
+        <th>Amount</th>
+        <th>Currency</th>
+        <th>Description</th>
+        <th>Category</th>
+      </tr>
+      <% @transactions_list.each do |transaction| %>
+        <tr>
+          <td> <%= transaction['id'] %> </td>
+          <td> <%= transaction['mode'] %> </td>
+          <td> <%= transaction['status'] %> </td>
+          <td> <%= transaction['made_on'] %> </td>
+          <td> <%= transaction['amount'] %> </td>
+          <td> <%= transaction['currency_code'] %> </td>
+          <td> <%= transaction['description'] %> </td>
+          <td> <%= transaction['category'] %> </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -1,4 +1,5 @@
-<table style="text-align: center;">
+<h1 class='title'> Connections </h1>
+<table class='table'>
   <tr>
     <th>ID</th>
     <th>Provider Name</th>
@@ -12,13 +13,13 @@
       <td> <%= connection['status']%> </td>
       <td> <%= connection['country_code']%> </td>
       <td>
-        <%= link_to 'Refresh /', connection_refresh_path(:id => connection['id']), :method => :put %>
-        <%= link_to 'Reconnect /', 
+        <%= link_to 'Refresh', connection_refresh_path(:id => connection['id']), :method => :put, class: 'button' %>
+        <%= link_to 'Reconnect', 
                     connection_reconnect_path(:customer_id => @user.customer_id, :id => connection['id']), 
-                   :method => :put 
+                   :method => :put, class: 'button'
                    %>
         <%= link_to 'Destroy', connection_destroy_url(:id => connection['id']),
-            data: {confirm: 'Are you sure?'},
+            data: {confirm: 'Are you sure?'}, class: 'button',
             :method => :delete %>
       </td>
     </tr>
